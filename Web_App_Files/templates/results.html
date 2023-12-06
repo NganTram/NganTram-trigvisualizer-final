@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Results - Trigonometry Function Visualizer</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Results</h1>
+
+        {% if plot_url %}
+            <h2>Graph:</h2>
+            <img src="{{ plot_url }}" alt="Trig Function Plot" class="img-fluid mb-4">
+        {% endif %}
+
+        {% if domain_range %}
+            <h2>Domain and Range:</h2>
+            <p>Domain: {{ domain_range[0] }}</p>
+            <p>Range: {{ domain_range[1] }}</p>
+        {% endif %}
+
+        {% if asymptotes %}
+            <h2>Asymptotes:</h2>
+            <p>{{ asymptotes|join(', ') }}</p>
+        {% endif %}
+
+        <a href="{{ url_for('main.index') }}" class="btn btn-primary mt-4">Back to form</a>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
